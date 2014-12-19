@@ -9,7 +9,8 @@ class Main:
 class Controller:
     def __init__(self):
         self.view = pygame.display.set_mode((500, 500), pygame.SRCALPHA)
-        self.cube = cube.Cube(300, pygame.image.load("one.bmp"))
+        self.cube = cube.Cube(300, [pygame.image.load((name) + ".bmp") for name in ["one", "two", "three", "four", "five", "six"]])
+        self.test = cube.Test(pygame.image.load("one.bmp"))
         self.timer = pygame.time.Clock()
         self.FPS = 40
 
@@ -28,7 +29,9 @@ class Controller:
         return # nothing for now
 
     def draw(self):
+        self.view.fill((0,0,0))
         self.cube.draw(self.view)
+        self.test.draw(self.view)
 
         pygame.display.update()
 
